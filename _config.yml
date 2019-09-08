@@ -61,7 +61,7 @@ plugins:
 author:
   name   : "Angus Williams"
   avatar : "/assets/images/bio-photo.jpg"
-  bio    : "Data scientist with an interest Bayesian statistics and 
+  bio    : "Data scientist with an interest in Bayesian statistics and 
             probabilistic programming."
   links:
     - label: "GitHub"
