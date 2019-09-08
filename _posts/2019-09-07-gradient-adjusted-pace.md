@@ -9,6 +9,8 @@ tags:
   - Sport
   - running
   - Stan
+layout: single
+classes: wide
 ---
 
 I like to go running, and I also like to see how I'm doing by using the Strava app.
@@ -24,38 +26,38 @@ GAP estimates of your pace are corrected for the vertical gradient of the terrai
 This facilitates comparison between runs that took place in different locations -- great!
 
 A lazy search didn't instantly tell me how GAP is calculated, so I thought it would be fun to try and come up with my own recipe instead.
-In the process, I also wondered if I could track some underlying metric for my fitness.
 
 ## What is GAP?
 
-I haven't actually got a rigorous definition of GAP yet.
-If I want to do something statistical, I had better come up with one.
-What about this:
+To do anything quantitative, I need a quantitative definition of GAP.
+Let's go with this:
 
 *"If I had done the same run in a parallel universe where all of the hills were removed, but everything else stayed the same, how fast would I have been?"*
 
 This would let me put all of my runs of the same distance on a (literally) level playing field for comparison.
-This definition also means that what I'm trying to calculate is a *counterfactual*, so I'm doing causal inference.
+This definition also means that what I'm trying to calculate is a *counterfactual*, so I'll need to interpret whatever model I build as causal.
+To produce estimates of the answer to this question, I will need to use data from my previous runs to build a statistical model, which I can then query.
 
 ## Data
 
 To come up with my own GAP estimates, I'll use data from Strava (there's an API that you can use to download your data).
-To keep things simple, I'll model the **average pace** of each run as a function of the **elevation gain** during the run and the **total distance** of the run.
+To keep things simple, I'll model the **average speed** of each run as a function of the **elevation gain** during the run and the **total distance** of the run.
 All of my runs are loops, so using elevation gain takes into account that I lose as much elevation as I gain.
 
 Here's a plot of the data:
-![image-title-here]({{site.url}}/assets/images/strava_post/distance_vs_speed.png){:class="img-responsive"}
+
+![distance-vs-speed]({{site.url}}/assets/images/strava_post/distance_vs_speed.png){:class="img-responsive"}
 
 The relationship between the log of distance and the log of speed looks like it would be well modelled as a straight line with some scatter.
-As expected, my average pace is lower when I run further.
-The points are coloured by the elevation gain, which lets us see, as we'd expect, that I get slower if there's more elevation gain in a run.
+As expected, my average speed is lower when I run further.
+The points are coloured by the elevation gain, which lets us see that I get slower if there's more elevation gain in a run.
 I've got data from 128 runs in total.
 
 ## Statistical model
 
-Based on the visualisation above, I'll use the following statistical model
+Based on the visualisation above, I came up with the following super-simple linear model
 
-$$\log\,(\mathrm{pace}) =
+$$\log\,(\mathrm{speed}) =
 
 \alpha 
 + \beta_\mathrm{elevation}\log\left(\mathrm{elevation} + \delta\right) 
@@ -65,11 +67,15 @@ $$
 
 where $$\epsilon$$ is normally distributed noise with some variance $$\sigma ^2$$.
 Note that $$\delta$$ is not a parameter: it's a constant that I add to elevation so that I don't run into trouble with logs when elevation is zero.
-I wrote this model in Stan:
+I don't have much data, so point estimates of the model parameters aren't going to cut it.
+To properly quantify my uncertainty, I'll take a Bayesian approach and sample the posterior using [Stan](mc-stan.org).
+
+Here's the stan code for this model:
+
 ```stan
 data {
   int n;
-  vector[n] log_pace;
+  vector[n] log_speed;
   vector[n] log_elevation;
   vector[n] log_distance;
 }
@@ -86,39 +92,49 @@ model {
   beta_elevation ~ normal(0, 1);
   beta_distance ~ normal(0, 1);
   sigma ~ normal(0, 5);
-  log_pace ~ normal(z, sigma);
+  log_speed ~ normal(z, sigma);
 }
 generated quantities {
-  vector[n] log_pace_rep;
+  vector[n] log_speed_rep;
   for (i in 1:n) {
-    log_pace_rep[i] = normal_rng(z[i], sigma);
+    log_speed_rep[i] = normal_rng(z[i], sigma);
   }
 }
 ```
-I centred log speed, so there's not explicit intercept term.
-I also generate some simulated data for model checking.
-The parameters of interest are the two betas:
+
+I centred log speed, so there's no explicit intercept term.
+I also generate some simulated data that for model checking in the `generated quantities` block.
+The marginal posterior distributions for the slopes look like this:
+
 ![image-title-here]({{site.url}}/assets/images/strava_post/model_params.png){:class="img-responsive"}
 
-Both are negative, as expected.
-Armed with this model, I can now calculate my simple GAP estimates through a simple re-arranging of my linear model and setting elevation to zero:
+Both elevation gain and total distance cause my average speed to go down, as expected.
+Armed with this model, I can now calculate my simple GAP estimates by re-arranging my linear model and setting elevation to zero:
 
-$$\log (\mathrm{GAP}) = \log(\mathrm{pace}) + \beta_\mathrm{elevation}\left[\log(\epsilon) - \log(\mathrm{elevation} + \delta) \right].$$
+$$\log (\mathrm{GAP}) = \log(\mathrm{speed}) + \beta_\mathrm{elevation}\left[\log(\delta) - \log(\mathrm{elevation} + \delta) \right].$$
 
+The counterfactual GAP speed is related to the actual speed through a correction (the causal impact of removing the hills from the run).
 Because I have uncertainty about the value of $$\beta_\mathrm{elevation}$$, I'll also have uncertainty about the GAP value that I infer for each run.
 The more elevation there is in a run, the more uncertainty there will be in the estimate of GAP.
 To compute this uncertainty, I can just plug my MCMC samples for $$\beta_\mathrm{elevation}$$ into the above formula.
-Here's the result of estimating GAP for all of my runs:
+Here's the result of estimating GAP for all of my runs:  
+
 ![image-title-here]({{site.url}}/assets/images/strava_post/gap_vs_true.png){:class="img-responsive"}
 
-In this figure, I'm plotting GAP against my actual pace for the run.
+In this figure, GAP is plotted against my actual pace for the run.
 The points are coloured by the elevation gain of the run.
 The error-bars are the 95% credible interval for GAP.
 
-The plot broadly makes sense: the GAP estimates are generally lower than the true pace (i.e., I would have run faster on the flat).
+The plot broadly makes sense: the GAP estimates are always lower than the true pace (i.e., I would have run faster on the flat), except for the one instance where I did a run where there was zero elevation gain.
 Furthermore, runs with more elevation have a bigger difference between GAP and my actual pace.
-I couldn't see how to get Strava's GAP out of the API, so I didn't do a full comparison between the average GAP produced by Strava and my simple model.
-I grabbed Strava's GAP for the run with the largest elevation gain and did a comparison there:
+
+It's interesting to note that I only did a single run with zero elevation!
+This means that I'm leaning on the assumption that the model assumptions are plausible when extrapolating to zero elevation gain.
+To really test if this is true, I'd need to go out and do some more runs at zero elevation in a variety of conditions and distances.
+
+I couldn't see how to get Strava's own GAP estimate out of the API, so I didn't do a full comparison between the average GAP produced by Strava and my simple model.
+I manually grabbed Strava's GAP for the run with the largest elevation gain and did a comparison:  
+
 ![image-title-here]({{site.url}}/assets/images/strava_post/gap_vs_strava.png){:class="img-responsive"}
 
 At least in this case, my approach and the Strava data are consistent with one another.
@@ -148,6 +164,7 @@ $$\alpha_i = \alpha_{i - 1} + \zeta$$,
 where $$\zeta$$ is normally distributed noise with variance $$\sigma_\mathrm{rw}^2$$.
 Now, I can infer the set $$\{\alpha_i\}$$ and interpret them and my "fitness" on each of my runs.
 Here's the stan code for this model:
+
 ```stan
 data {
   int n;
@@ -190,22 +207,28 @@ generated quantities {
   }
 }
 ```
-After running MCMC, I can plot my inferred fitness over time:
+
+After running MCMC, I can plot my inferred fitness over time:  
+
 ![image-title-here]({{site.url}}/assets/images/strava_post/fitness_trend.png){:class="img-responsive"}
 
 The grey band is the 68% credible intervals, and the black dots mark when a run took place.
-The results look broadly as I would expected them to. 
+The results look broadly as I would expect them to. 
 I know I was pretty fit last summer, but then had an injury which bothered me until early January.
 I then started training again for a couple of half-marathons in May / June.
 A definite issue with this approach is that the amount of effort I put into runs is variable, but the model assumes that I am trying my best in every run.
 One way to get around this would be to include heart-rate data, which provide a measure of how strained I am during the run.
 But as a simple first approach, the results are reasonable.
 
-I can also check if the model is reproducing the data reasonably:
+I can also check if the model is reproducing the data reasonably:  
+
 ![image-title-here]({{site.url}}/assets/images/strava_post/residuals.png){:class="img-responsive"}
 
 Each of the box-and-whisker plots in the figure show the distribution of the difference between the simulated pace from my model posterior samples and the actual pace.
 All being well, these residuals should largely line up around zero.
-Since there are a bunch of runs, we would expect to see some where the difference between the simulations and the actual pace is larger than this just because of statistical noise.
+Since there is a reasonable number of runs, we would expect to see some runs where the difference between the simulations and the actual pace is larger than this just because of statistical noise.
 Broadly, the model seems to fit the data relatively well according to this figure.
-There looks like there might be some autocorrelation (i.e. runs where the model underestimates the pace tend to be clustered near to each other, you can see this is a bit in the centre of the plot), but broadly speaking it looks ok.
+There looks like there might be some autocorrelation: runs where the model underestimates the pace tend to be clustered near to each other.
+You can see this in the centre of the plot.
+I think this makes sense: the random walk prior enforces smooth variation in fitness, but the injury was actually a *change-point*: I suddenly got a lot slower.
+Because of the prior, the model is forced to smoothly approach a low fitness, which means it underestimates the speed of the runs just before the injury.
