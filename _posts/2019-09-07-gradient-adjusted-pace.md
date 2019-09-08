@@ -147,7 +147,7 @@ The plot broadly makes sense: the GAP estimates are always lower than the true p
 Furthermore, runs with more elevation have a bigger difference between GAP and my actual pace.
 
 It's interesting to note that I only did a single run with zero elevation!
-This means that I'm leaning the model assumptions, and hoping that they're are plausible when extrapolating to zero elevation gain.
+This means that I'm leaning on the model assumptions, and hoping that they're are plausible when extrapolating to zero elevation gain.
 To really test if this is true, I'd need to go out and do some more runs at zero elevation in a variety of conditions and distances (i.e., try to observe something close to the counterfactual).
 
 I couldn't see how to get Strava's own GAP estimate out of the API, so I didn't do a full comparison between the average GAP produced by Strava and my simple model.
