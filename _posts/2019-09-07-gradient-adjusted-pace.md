@@ -250,3 +250,10 @@ Then it changes very abruptly.
 I actually got injured last year, and so my runs became notably slower for a while as I recovered.
 The injury is effectively a *change-point* in my fitness.
 I reckon what's going on is this: because of the random walk prior, the model is forced to smoothly approach a low fitness, which means it underestimates the speed of the runs just before the injury.
+
+## Final thoughts
+
+This was a fun exercise, and it was quite satisfying to do analysis of my own running data!
+Very simple statistical models produced relatively interesting insights -- especially the fitness metric in the final section.
+I might try adding heart rate data into the model at some point, and see if this improves the model at all.
+If you're interested in trying this for yourself, I put the notebook I used to generate the results from this post in a [github repo](https://github.com/anguswilliams91/negsplit/) (be warned: it's a bit scrappy).
