@@ -46,7 +46,7 @@ All of my runs are loops, so using elevation gain takes into account that I lose
 
 Here's a plot of the data:
 
-![distance-vs-speed]({{site.url}}/assets/images/strava_post/distance_vs_speed.png){:class="img-responsive"}
+![distance-vs-speed]({{site.github.url}}/assets/images/strava_post/distance_vs_speed.png){:class="img-responsive"}
 
 The relationship between the log of distance and the log of speed looks like it would be well modelled as a straight line with some scatter.
 As expected, my average speed is lower when I run further.
@@ -107,7 +107,7 @@ I centred log speed, so there's no explicit intercept term.
 I also generate some simulated data to be used for model checking in the `generated quantities` block.
 The marginal posterior distributions for the slopes look like this:
 
-![image-title-here]({{site.url}}/assets/images/strava_post/model_params.png){:class="img-responsive"}
+![slopes-posterior]({{site.github.url}}/assets/images/strava_post/model_params.png){:class="img-responsive"}
 
 Both elevation gain and total distance cause my average speed to go down, as expected.
 Let's also do a quick check of the model by plotting the distribution of the residual  
@@ -119,7 +119,7 @@ $$\log(\mathrm{speed})_\mathrm{rep}$$ are the simulated speeds from the model po
 For each run (in temporal order), I display a box and whisker plot of these residuals.
 The speeds and simulated speeds are scaled according to the mean and variance of the observed data, so we should expect to see the residuals distributed something like a unit normal, with some variation between runs.
 
-![image-title-here]({{site.url}}/assets/images/strava_post/residuals_simple.png){:class="img-responsive"}
+![posterior-checks]({{site.github.url}}/assets/images/strava_post/residuals_simple.png){:class="img-responsive"}
 
 The figure shows that the model is doing a reasonable job at replicating the data, but there is obviously some autocorrelation visible (remember that the runs are plotted in temporal order).
 This is probably because my fitness changed over time, which this model does not account for (we'll get to that later).
@@ -137,7 +137,7 @@ The more elevation there is in a run, the more uncertainty there will be in the 
 To compute this uncertainty, I can just plug my MCMC samples for $$\beta_\mathrm{elevation}$$ into the above formula.
 Here's the result of estimating GAP for all of my runs:  
 
-![image-title-here]({{site.url}}/assets/images/strava_post/gap_vs_true.png){:class="img-responsive"}
+![gap-estimates]({{site.github.url}}/assets/images/strava_post/gap_vs_true.png){:class="img-responsive"}
 
 In this figure, GAP is plotted against my actual pace for the run.
 The points are coloured by the elevation gain of the run.
@@ -153,7 +153,7 @@ To really test if this is true, I'd need to go out and do some more runs at zero
 I couldn't see how to get Strava's own GAP estimate out of the API, so I didn't do a full comparison between the average GAP produced by Strava and my simple model.
 I manually grabbed Strava's GAP for the run with the largest elevation gain and did a comparison:  
 
-![image-title-here]({{site.url}}/assets/images/strava_post/gap_vs_strava.png){:class="img-responsive"}
+![me-vs-strava]({{site.github.url}}/assets/images/strava_post/gap_vs_strava.png){:class="img-responsive"}
 
 At least in this case, my approach and the Strava data are consistent with one another.
 I probably won't start using this instead of Strava's estimates, but it was good fun to build a simple model myself.
@@ -230,7 +230,7 @@ generated quantities {
 
 After running MCMC, I can plot my inferred fitness over time:  
 
-![image-title-here]({{site.url}}/assets/images/strava_post/fitness_trend.png){:class="img-responsive"}
+![fitness-trend]({{site.github.url}}/assets/images/strava_post/fitness_trend.png){:class="img-responsive"}
 
 The grey band is the 68% credible interval, and the black dots mark when a run took place.
 The results look broadly as I would expect them to. 
@@ -242,7 +242,7 @@ But as a simple first approach, the results are reasonable.
 
 Let's see if that autocorrelation we saw in the previous model check has been reduced:
 
-![image-title-here]({{site.url}}/assets/images/strava_post/residuals.png){:class="img-responsive"}
+![posterior-checks-2]({{site.github.url}}/assets/images/strava_post/residuals.png){:class="img-responsive"}
 
 It definitely has, although there's still some present in the middle of the plot (the large negative residuals clustered together).
 I think that this is highlighting an incorrect assumption that I made: fitness varies smoothly over time *unless* you get injured.
