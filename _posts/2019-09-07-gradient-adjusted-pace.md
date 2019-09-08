@@ -167,8 +167,8 @@ To include some notion of fitness, I expanded the model so that it looks like th
 $$\log\,(\mathrm{pace}_i) =
 
 \alpha_i 
-+ \beta_\mathrm{elevation}\log\left(\mathrm{elevation} + \delta\right) 
-+ \beta_\mathrm{distance}\log\left(\mathrm{distance}\right)
++ \beta_\mathrm{elevation}\log\left(\mathrm{elevation}_i + \delta\right) 
++ \beta_\mathrm{distance}\log\left(\mathrm{distance}_i\right)
 + \epsilon
 $$
 
