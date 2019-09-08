@@ -255,5 +255,5 @@ I reckon what's going on is this: because of the random walk prior, the model is
 
 This was a fun exercise, and it was quite satisfying to do analysis of my own running data!
 Very simple statistical models produced relatively interesting insights -- especially the fitness metric in the final section.
-I might try adding heart rate data into the model at some point, and see if this improves the model at all.
+I might try adding heart rate data into the model at some point, and see if this improves the results.
 If you're interested in trying this for yourself, I put the notebook I used to generate the results from this post in a [github repo](https://github.com/anguswilliams91/negsplit/) (be warned: it's a bit scrappy).
