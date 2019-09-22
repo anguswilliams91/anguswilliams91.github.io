@@ -12,11 +12,7 @@ layout: single
 classes: wide
 ---
 
-<<<<<<< HEAD
 The men's rugby union world cup is just starting[^1], so I thought it would be fun to make some predictions before the tournament gets going.
-=======
-The mens rugby union world cup is just starting[^1], so I thought it would be fun to make some predictions before the tournament gets going.
->>>>>>> b1c1a7c066f33604f94b0b077776fa919bb55f8c
 The plan is to build a statistical model using previous match results, and then use it to evaluate the probability that each of the teams will win.
 (All of the code I used to obtain the data and produce the results in this post are [here](https://github.com/anguswilliams91/ruwc_2019).)
 
@@ -25,13 +21,8 @@ The plan is to build a statistical model using previous match results, and then 
 I have modelled football data before, and have found it very easy to obtain.
 Rugby data, on the other hand, proved a bit trickier to get hold of.
 I couldn't find a website where I could simply download a file containing historical results, so I had to resort to scraping ESPN.
-<<<<<<< HEAD
 I hadn't done this kind of thing in a while, so it took a little while to inspect the html and figure out how to extract the data.
 In the end, I downloaded all of the men's international rugby union results between the present day and 1st January 2013 to use as a training set for my model.
-=======
-I hadn't done this in a while, so it took a little while to inspect the html and figure out how to extract the data.
-In the end, I downloaded all of the mens international rugby union results between the present day and 1st January 2013 to use as a training set for my model.
->>>>>>> b1c1a7c066f33604f94b0b077776fa919bb55f8c
 A combination of the python standard library and Beautiful Soup got me there in the end!
 
 ## Model
@@ -113,11 +104,7 @@ I end up with the same number of simulated datasets as there are steps in my MCM
 
 One nice way to do visual checks is to plot the distribution of the data on the same axes as the distribution of a single simulated dataset.
 Since we have lots of simulated datasets, we can make this plot multiple times.
-<<<<<<< HEAD
 This gives us an idea of whether the real data are "typical" of the model.
-=======
-This gives us an idea if the real data are "typical" of the model.
->>>>>>> b1c1a7c066f33604f94b0b077776fa919bb55f8c
 Here's a figure like that, where I plot the distribution of total points scored in a match:
 
 ![points-ppc]({{site.github.url}}/assets/images/rugby_wc_post/total_points_distro.png){:class="img-responsive"}
@@ -126,11 +113,7 @@ and another where I plot the distribution of the difference in points between th
 
 ![diff-ppc]({{site.github.url}}/assets/images/rugby_wc_post/difference_distro.png){:class="img-responsive"}
 
-<<<<<<< HEAD
 The model seems to consistently produce a few matches with *very* high points totals relative to the data, but otherwise seems to be doing a reasonable job.
-=======
-The model seems to consistently produce a few matches with *very* high points totals relative to the data, but otherwise seems to be a reasonable representation of the data.
->>>>>>> b1c1a7c066f33604f94b0b077776fa919bb55f8c
 
 ## Simulating the world cup
 
