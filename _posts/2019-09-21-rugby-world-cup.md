@@ -153,7 +153,7 @@ Here are the probabilities assigned to each of the teams by the model (I only di
 
 
 New Zealand are massive favourites, with England, South Africa and Ireland all hovering at around 0.1 chance of winning.
-I am perhaps surprised by Wales being a assigned a noticeably lower probability than England, but perhaps this is due to the likely path they would need to take to the final being more difficult than England's.
+I am perhaps surprised by Wales being assigned a noticeably lower probability than England, but perhaps this is due to the likely path they would need to take to the final being more difficult than England's.
 Also, Wales had a dire spell a few years ago, and the simple model I used does not account for changing form, so it might underrate Wales somewhat.
 
 As an England fan, I am also curious to know how likely England are to get to various stages of the tournament.
