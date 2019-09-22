@@ -69,11 +69,11 @@ where $$\epsilon$$ is normally distributed noise with variance $$\sigma ^2$$.
 Note that $$\delta$$ is not a parameter: it's a constant that I add to elevation so that I don't run into trouble with logs when elevation is zero.
 I set $$\delta = 10\mathrm{m}$$.
 I don't have much data, so point estimates of the model parameters aren't going to cut it.
-To properly quantify my uncertainty, I'll take a Bayesian approach and sample the posterior using [Stan](mc-stan.org).
+To properly quantify my uncertainty, I'll take a Bayesian approach and sample the posterior using [Stan](https://mc-stan.org).
 
 Here's the stan code for this model:
 
-```stan
+```text
 data {
   int n;
   vector[n] log_speed;
@@ -185,7 +185,7 @@ The size of the variance controls how rapidly my fitness can change between cons
 Now, I can infer the set $$\{\alpha_i\}$$ and interpret them as my "fitness" on each of my runs.
 Here's the stan code for this model:
 
-```stan
+```text
 data {
   int n;
   vector[n] log_speed;
