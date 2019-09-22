@@ -161,7 +161,7 @@ The model gives England a probability of 0.94 of getting out of the group -- so 
 The probability of them getting to the semi finals is 0.65, and 0.30 for the final.
 So, fans should be disappointed if they don't see England win at least one knockout match!
 
-Whilst I'm at it, here are the model outputs for each of the groups (again I leave out teams with probability < 0.01, and round up to the nearest 0.01).
+Whilst I'm at it, here are the model outputs for each of the groups (again I leave out teams with probability < 0.01, and round to the nearest 0.01).
 
 ### Group A
 
