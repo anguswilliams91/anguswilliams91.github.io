@@ -73,7 +73,7 @@ To properly quantify my uncertainty, I'll take a Bayesian approach and sample th
 
 Here's the stan code for this model:
 
-```stan
+```text
 data {
   int n;
   vector[n] log_speed;
@@ -185,7 +185,7 @@ The size of the variance controls how rapidly my fitness can change between cons
 Now, I can infer the set $$\{\alpha_i\}$$ and interpret them as my "fitness" on each of my runs.
 Here's the stan code for this model:
 
-```stan
+```text
 data {
   int n;
   vector[n] log_speed;
