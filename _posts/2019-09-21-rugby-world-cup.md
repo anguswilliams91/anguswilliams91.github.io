@@ -14,7 +14,7 @@ classes: wide
 
 The men's rugby union world cup is just starting[^1], so I thought it would be fun to make some predictions before the tournament gets going.
 The plan is to build a statistical model using previous match results, and then use it to evaluate the probability that each of the teams will win.
-(All of the code I used to obtain the data and produce the results in this post are [here](https://github.com/anguswilliams91/ruwc_2019).)
+(All of the code I used to obtain the data and produce the results in this post is [here](https://github.com/anguswilliams91/ruwc_2019).)
 
 ## Historical data
 
