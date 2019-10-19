@@ -25,6 +25,6 @@ Now that the group stages are over, here are the probabilities that the remainin
 | France       | 0.022                                |
 | Japan        | 0.001                                |
 
-This uses the same model as in my [previous post]({% post_url 2019-09-21-rugby-world-cup}). 
+This uses the same model as in my [previous post]({% post_url 2019-09-21-rugby-world-cup %}). 
 I'm quite sure that I am underrating Japan by not allowing form to vary!
 Otherwise, the results aren't wildly different to my predictions before the group stages.
