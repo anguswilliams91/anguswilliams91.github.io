@@ -22,7 +22,7 @@ jobs:
               run: pip install bpl requests tabulate
 
             - name: run script to produce new predictions
-              run: python ./.github/workflows/make_predictions.py --date=2020-09-03
+              run: python ./.github/workflows/make_predictions.py --date=2020-09-17
 
             - name: commit files
               run: |
