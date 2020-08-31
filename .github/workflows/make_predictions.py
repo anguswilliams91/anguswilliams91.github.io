@@ -84,15 +84,12 @@ def get_fixtures_for_week(now):
 def make_predictions():
     """Make predictions for this gameweek."""
 
-    output_path = f"predictions_{datetime.datetime.now().date()}.md"
+    output_path = f"./pl-predictions/index.md"
 
     try:
         fixtures = pd.read_csv("fixtures.csv")
     except FileNotFoundError:
-        # no matches, so just write empty string
-        markdown_table = ""
-        with open(output_path, "w") as f:
-            f.write(markdown_table)
+        # no matches, so don't make any predictions this week
         return
 
     # fit the model
@@ -125,8 +122,10 @@ def make_predictions():
         predictions.values, headers=predictions.columns, tablefmt="pretty"
     )
     print(markdown_table)
-    with open(output_path, "w") as f:
-        f.write(markdown_table)
+
+    with open(output_path, "a") as f:
+        f.write(f"## {datetime.datetime.now().date()}\n\n")
+        f.write(markdown_table + "\n\n")
 
 
 def main(date):
