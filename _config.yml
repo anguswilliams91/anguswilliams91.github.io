@@ -19,7 +19,6 @@ description: >- # this means to ignore newlines until "baseurl:"
   My blog discussing various topics in statistics and data science.
 github_username: anguswilliams91
 minimal_mistakes_skin: dark
-search: true
 
 # Build settings
 # Build settings
