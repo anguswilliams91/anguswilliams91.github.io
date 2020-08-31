@@ -136,10 +136,19 @@ def make_predictions():
     )
     print(markdown_table)
 
-    with open(output_path, "a") as f:
-        f.write(f"## Predictions for week starting {datetime.datetime.now().date()}\n\n")
-        f.write(markdown_table + "\n\n")
+    with open(output_path, "r") as f:
+        contents = f.readlines()
 
+    new_predictions = (
+        f"## Predictions for week starting {datetime.datetime.now().date()}\n\n"
+        + markdown_table
+        + "\n\n"
+    )
+
+    contents.insert(14, new_predictions)
+
+    with open(output_path, "w") as f:
+        f.writelines(contents)
 
 def main(date):
     download_data(date)
