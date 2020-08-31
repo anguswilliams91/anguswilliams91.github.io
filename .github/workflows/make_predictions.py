@@ -119,7 +119,7 @@ def make_predictions():
     ).round(decimals=2)
 
     markdown_table = tabulate.tabulate(
-        predictions.values, headers=predictions.columns, tablefmt="pretty"
+        predictions.values, headers=predictions.columns, tablefmt="github"
     )
     print(markdown_table)
 
