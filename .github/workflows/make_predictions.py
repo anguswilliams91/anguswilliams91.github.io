@@ -140,7 +140,7 @@ def make_predictions():
         contents = f.readlines()
 
     new_predictions = (
-        f"## Predictions for week starting {datetime.datetime.now().date()}\n\n"
+        f"## Predictions made on {datetime.datetime.now().date()}\n\n"
         + markdown_table
         + "\n\n"
     )
