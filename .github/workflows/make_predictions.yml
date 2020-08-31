@@ -1,6 +1,8 @@
 name: PL predictions
 
 on: push
+  # schedule:
+  #   - cron: '0 0 * * 4'
 
 jobs:
     add-predictions:
@@ -26,7 +28,7 @@ jobs:
               run: |
                 git config --local user.name ${{ github.actor }}
                 git add ./pl-predictions
-                git commit -m "Updating predictions page."
+                git diff-index --quiet HEAD || git commit -m "Updating predictions page."
             
             - name: push changes
               uses: ad-m/github-push-action@v0.6.0
