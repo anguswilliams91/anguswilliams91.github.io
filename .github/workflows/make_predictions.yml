@@ -29,7 +29,7 @@ jobs:
                 git commit -m "Updating predictions page."
             
             - name: push changes
-              uses: ad-m/github-push-actions@master
+              uses: ad-m/github-push-action@v0.6.0
               with:
                 github_token: ${{ secrets.GITHUB_TOKEN }}
 
