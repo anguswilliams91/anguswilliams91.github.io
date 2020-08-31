@@ -1,0 +1,42 @@
+name: PL predictions
+
+on:
+  schedule:
+    - cron: '0 0 * * 4'
+
+jobs:
+    add-predictions:
+        name: Add predictions page
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: checkout repo
+              uses: actions/checkout@v2
+
+            - name: set up python
+              uses: actions/setup-python@v2
+              with:
+                python-version: '3.7'
+            
+            - name: install packages
+              run: pip install bpl requests tabulate
+
+            - name: run script to produce new predictions
+              run: python ./.github/workflows/make_predictions.py --date=2020-09-17
+
+            - name: commit files
+              run: |
+                git config --local user.name ${{ github.actor }}
+                git add ./pl-predictions
+                git diff-index --quiet HEAD || git commit -m "Updating predictions page."
+            
+            - name: push changes
+              uses: ad-m/github-push-action@v0.6.0
+              with:
+                github_token: ${{ secrets.GITHUB_TOKEN }}
+
+
+
+            
+
+            
