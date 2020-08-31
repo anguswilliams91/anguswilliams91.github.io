@@ -102,7 +102,7 @@ def make_predictions():
 
     # fit the model
     training_set = pd.read_csv("training_set.csv")
-    fifa_ratings = pd.read_csv("fifa_ratings.csv")
+    fifa_ratings = pd.read_csv("./.github/workflows/fifa_ratings.csv")
     model = bpl.BPLModel(training_set, X=fifa_ratings)
     model.fit()
 
