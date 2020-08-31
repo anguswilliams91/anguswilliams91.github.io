@@ -137,7 +137,7 @@ def make_predictions():
     print(markdown_table)
 
     with open(output_path, "a") as f:
-        f.write(f"## {datetime.datetime.now().date()}\n\n")
+        f.write(f"## Predictions for week starting {datetime.datetime.now().date()}\n\n")
         f.write(markdown_table + "\n\n")
 
 
