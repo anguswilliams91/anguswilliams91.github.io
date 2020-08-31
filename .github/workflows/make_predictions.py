@@ -145,3 +145,4 @@ if __name__ == "__main__":
         date = pd.to_datetime(args.date)
 
     main(date)
+
