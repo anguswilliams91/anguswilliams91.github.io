@@ -9,6 +9,14 @@ import tabulate
 from urllib.error import HTTPError
 
 
+# some teams are inconsistently named between the two data sources
+FPL_TO_FOOTBALL_DATA = {
+    "Man Utd": "Man United",
+    "Sheffield Utd": "Sheffield United",
+    "Spurs": "Tottenham"
+}
+
+
 def download_data(now):
     """Download this season and last season's data for training."""
     this_year = int(str(now.year)[2:])
@@ -64,7 +72,7 @@ def get_fixtures_for_week(now):
     teams_url = "https://fantasy.premierleague.com/api/bootstrap-static/"
     teams = requests.get(teams_url).json()["teams"]
 
-    code_to_team = {team["id"]: team["name"] for team in teams}
+    code_to_team = {team["id"]: FPL_TO_FOOTBALL_DATA.get(team["name"], team["name"]) for team in teams}
 
     matches = [
         {
@@ -94,15 +102,20 @@ def make_predictions():
 
     # fit the model
     training_set = pd.read_csv("training_set.csv")
-    model = bpl.BPLModel(training_set)
+    fifa_ratings = pd.read_csv("fifa_ratings.csv")
+    model = bpl.BPLModel(training_set, X=fifa_ratings)
     model.fit()
 
     # add missing teams if necessary (first GW of season for promoted teams)
     teams = set(fixtures["home_team"]) | set(fixtures["away_team"])
     model_teams = set(model.team_indices.keys())
     missing_teams = teams - model_teams
+    print("Teams missing from model:", missing_teams)
+
+    fifa_ratings = fifa_ratings.copy().set_index("team")
     for team in missing_teams:
-        model.add_new_team(team)
+        covariates = fifa_ratings.loc[team].values
+        model.add_new_team(team, X=covariates)
 
     # make predictions
     predictions = model.predict_future_matches(fixtures)
