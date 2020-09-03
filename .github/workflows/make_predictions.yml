@@ -2,7 +2,7 @@ name: PL predictions
 
 on:
   schedule:
-    - cron: '0 0 * * 4'
+    - cron: '0 0 * * 5'
 
 jobs:
     add-predictions:
