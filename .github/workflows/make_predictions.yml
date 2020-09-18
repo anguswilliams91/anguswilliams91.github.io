@@ -1,8 +1,9 @@
 name: PL predictions
 
-on:
+on: 
+  push:
   schedule:
-    - cron: '20 7 * * 5'
+    - cron: '0 0 * * 5'
 
 jobs:
     add-predictions:
