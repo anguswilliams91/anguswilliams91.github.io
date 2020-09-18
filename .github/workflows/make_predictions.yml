@@ -1,7 +1,6 @@
 name: PL predictions
 
 on: 
-  push:
   schedule:
     - cron: '0 0 * * 5'
 
