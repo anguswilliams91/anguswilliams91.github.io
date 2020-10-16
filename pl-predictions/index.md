@@ -12,6 +12,21 @@ More recent predictions appear at the top of the page.
 The numbers in the tables are probabilities.
 
 
+## Predictions made on 2020-10-16
+
+| Date       | Home team        | Away team   |   Home win |   Away win |   Draw |
+|------------|------------------|-------------|------------|------------|--------|
+| 2020-10-17 | Everton          | Liverpool   |       0.21 |       0.57 |   0.22 |
+| 2020-10-17 | Chelsea          | Southampton |       0.63 |       0.15 |   0.22 |
+| 2020-10-17 | Man City         | Arsenal     |       0.68 |       0.14 |   0.18 |
+| 2020-10-17 | Newcastle        | Man United  |       0.25 |       0.49 |   0.26 |
+| 2020-10-18 | Sheffield United | Fulham      |       0.54 |       0.18 |   0.27 |
+| 2020-10-18 | Crystal Palace   | Brighton    |       0.38 |       0.31 |   0.31 |
+| 2020-10-18 | Tottenham        | West Ham    |       0.68 |       0.14 |   0.19 |
+| 2020-10-18 | Leicester        | Aston Villa |       0.61 |       0.16 |   0.22 |
+| 2020-10-19 | West Brom        | Burnley     |       0.26 |       0.45 |   0.29 |
+| 2020-10-19 | Leeds            | Wolves      |       0.24 |       0.49 |   0.27 |
+
 ## Predictions made on 2020-10-02
 
 | Date       | Home team   | Away team        |   Home win |   Away win |   Draw |
