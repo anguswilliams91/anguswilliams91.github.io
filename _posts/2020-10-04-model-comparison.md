@@ -110,7 +110,7 @@ $$p(\theta | M) = \dfrac{1}{\sqrt{2\pi \sigma_\mathrm{prior} ^ 2}}  \exp [ -\dfr
 Given these assumptions, we can exactly work out some of the quantities of interest for model comparison.
 Let's first work out the numerator of the RHS of (\ref{model_bayes}). It turns out to be another normal distribution:
 
-$$p(y | \theta, M)\,p(\theta) = A \times \dfrac{C}{\sqrt{2\pi \sigma_\mathrm{post} ^ 2}}\exp [ -\dfrac{(\theta - \mu_\mathrm{post})^2}{2 \sigma_\mathrm{post} ^2}],\label{integral}\tag{4}$$
+$$p(y | \theta, M)\,p(\theta) = A \times \dfrac{1}{\sqrt{2\pi \sigma_\mathrm{post} ^ 2}}\exp [ -\dfrac{(\theta - \mu_\mathrm{post})^2}{2 \sigma_\mathrm{post} ^2}],\label{integral}\tag{4}$$
 
 where
 
