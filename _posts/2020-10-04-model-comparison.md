@@ -98,10 +98,11 @@ Practitioners of Bayesian inference quickly learn the rule of thumb that the mor
 This makes sense - the more evidence you accumulate by collecting more data, the less weight you will place on your prior beliefs. 
 
 Suppose we have a model $$M$$ with a single parameter $$\theta$$ and some data $$y$$.
-Let's further assume that the *likelihood* $$p(y | \theta, M)$$ is a normal distribution (when regarded as a function of $$\theta$$) with mean $$\mu_\ell$$ and variance $$\sigma_\ell ^2$$:
+Let's further assume that the *likelihood* $$p(y | \theta, M)$$ is a normal distribution with mean $$\mu_\ell$$ and variance $$\sigma_\ell ^2$$:
 
-$$p(y | \theta, M) = \dfrac{1}{\sqrt{2\pi \sigma_\ell ^ 2}}  \exp [ -\dfrac{(\theta - \mu_\ell)^2}{2 \sigma_\ell ^2}].$$
+$$p(y | \theta, M) = \dfrac{C}{\sqrt{2\pi \sigma_\ell ^ 2}}  \exp [ -\dfrac{(\theta - \mu_\ell)^2}{2 \sigma_\ell ^2}].$$
 
+Note that because I'm considering the likelihood as a function of $\theta$, it need not be normalised, which is why the constant $C$ appears on the right hand side.
 Further suppose that the prior on $$\theta$$ is a normal distribution with mean zero and variance $$\sigma_\mathrm{prior} ^2$$
 
 $$p(\theta | M) = \dfrac{1}{\sqrt{2\pi \sigma_\mathrm{prior} ^ 2}}  \exp [ -\dfrac{\theta ^2}{2 \sigma_\mathrm{prior} ^2}].$$
@@ -109,7 +110,7 @@ $$p(\theta | M) = \dfrac{1}{\sqrt{2\pi \sigma_\mathrm{prior} ^ 2}}  \exp [ -\dfr
 Given these assumptions, we can exactly work out some of the quantities of interest for model comparison.
 Let's first work out the numerator of the RHS of (\ref{model_bayes}). It turns out to be another normal distribution:
 
-$$p(y | \theta, M)\,p(\theta) = A \times \dfrac{1}{\sqrt{2\pi \sigma_s ^ 2}}\exp [ -\dfrac{(\theta - \mu_\mathrm{post})^2}{2 \sigma_\mathrm{post} ^2}],\label{integral}\tag{4}$$
+$$p(y | \theta, M)\,p(\theta) = A \times \dfrac{C}{\sqrt{2\pi \sigma_\mathrm{post} ^ 2}}\exp [ -\dfrac{(\theta - \mu_\mathrm{post})^2}{2 \sigma_\mathrm{post} ^2}],\label{integral}\tag{4}$$
 
 where
 
@@ -117,7 +118,7 @@ $$\mu_\mathrm{post} = \mu_\ell \dfrac{\sigma_\mathrm{prior} ^2}{\sigma_\mathrm{p
 
 The constant $$A$$ is equal to yet another normal distribution:
 
-$$A = \dfrac{1}{\sqrt{2\pi (\sigma_\ell ^ 2 + \sigma_\mathrm{prior} ^ 2)}}  \exp [ -\dfrac{\mu_\ell^2}{2 (\sigma_\ell ^2 + \sigma_\mathrm{prior}^2)}].\label{normal_marginal}\tag{6}$$
+$$A = \dfrac{C}{\sqrt{2\pi (\sigma_\ell ^ 2 + \sigma_\mathrm{prior} ^ 2)}}  \exp [ -\dfrac{\mu_\ell^2}{2 (\sigma_\ell ^2 + \sigma_\mathrm{prior}^2)}].\label{normal_marginal}\tag{6}$$
 
 Now, looking at Bayes' theorem (\ref{model_bayes}), we can see that the left hand side is a probability distribution, which means that it integrates to one:
 
@@ -158,7 +159,7 @@ This makes intuitive sense - when the likelihood dominates the prior, the poster
 What about the marginal likelihood?
 Looking at (\ref{normal_marginal}), we can see that this becomes:
 
-$$p(y | M) \approx \dfrac{1}{\sqrt{2\pi\sigma_\mathrm{prior} ^ 2}}  \exp [ -\dfrac{\mu_\ell^2}{2 \sigma_\mathrm{prior}^2}].\label{approx_marginal}\tag{7}$$
+$$p(y | M) \approx \dfrac{C}{\sqrt{2\pi\sigma_\mathrm{prior} ^ 2}}  \exp [ -\dfrac{\mu_\ell^2}{2 \sigma_\mathrm{prior}^2}].\label{approx_marginal}\tag{7}$$
 
 One thing to immediately notice is that, in the limit where the likelihood dominates the prior, the posterior distribution is approximately *independent* of the prior: we can see that because it is approximately equal to the likelihood.
 But quite the opposite is true of the marginal likelihood!
