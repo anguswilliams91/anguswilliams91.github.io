@@ -102,7 +102,7 @@ Let's further assume that the *likelihood* $$p(y | \theta, M)$$ is a normal dist
 
 $$p(y | \theta, M) = \dfrac{C}{\sqrt{2\pi \sigma_\ell ^ 2}}  \exp [ -\dfrac{(\theta - \mu_\ell)^2}{2 \sigma_\ell ^2}].$$
 
-Note that because I'm considering the likelihood as a function of $\theta$, it need not be normalised, which is why the constant $C$ appears on the right hand side.
+Note that because I'm considering the likelihood as a function of $$\theta$$, it need not be normalised, which is why the constant $$C$$ appears on the right hand side.
 Further suppose that the prior on $$\theta$$ is a normal distribution with mean zero and variance $$\sigma_\mathrm{prior} ^2$$
 
 $$p(\theta | M) = \dfrac{1}{\sqrt{2\pi \sigma_\mathrm{prior} ^ 2}}  \exp [ -\dfrac{\theta ^2}{2 \sigma_\mathrm{prior} ^2}].$$
