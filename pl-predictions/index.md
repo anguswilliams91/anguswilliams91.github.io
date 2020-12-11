@@ -12,6 +12,31 @@ More recent predictions appear at the top of the page.
 The numbers in the tables are probabilities.
 
 
+## Predictions made on 2020-12-11
+
+| Date       | Home team        | Away team        |   Home win |   Away win |   Draw |
+|------------|------------------|------------------|------------|------------|--------|
+| 2020-12-11 | Leeds            | West Ham         |       0.31 |       0.42 |   0.27 |
+| 2020-12-12 | Wolves           | Aston Villa      |       0.52 |       0.22 |   0.25 |
+| 2020-12-12 | Newcastle        | West Brom        |       0.56 |       0.17 |   0.26 |
+| 2020-12-12 | Man United       | Man City         |       0.28 |       0.48 |   0.24 |
+| 2020-12-12 | Everton          | Chelsea          |       0.28 |       0.47 |   0.26 |
+| 2020-12-13 | Southampton      | Sheffield United |       0.45 |       0.27 |   0.28 |
+| 2020-12-13 | Crystal Palace   | Tottenham        |       0.19 |       0.57 |   0.24 |
+| 2020-12-13 | Fulham           | Liverpool        |       0.07 |       0.8  |   0.13 |
+| 2020-12-13 | Arsenal          | Burnley          |       0.56 |       0.19 |   0.24 |
+| 2020-12-13 | Leicester        | Brighton         |       0.57 |       0.19 |   0.24 |
+| 2020-12-15 | Wolves           | Chelsea          |       0.28 |       0.45 |   0.26 |
+| 2020-12-15 | Man City         | West Brom        |       0.88 |       0.03 |   0.08 |
+| 2020-12-16 | Arsenal          | Southampton      |       0.54 |       0.22 |   0.24 |
+| 2020-12-16 | Leeds            | Newcastle        |       0.3  |       0.41 |   0.29 |
+| 2020-12-16 | Leicester        | Everton          |       0.49 |       0.26 |   0.25 |
+| 2020-12-16 | Fulham           | Brighton         |       0.27 |       0.44 |   0.28 |
+| 2020-12-16 | Liverpool        | Tottenham        |       0.55 |       0.23 |   0.22 |
+| 2020-12-16 | West Ham         | Crystal Palace   |       0.44 |       0.28 |   0.27 |
+| 2020-12-17 | Aston Villa      | Burnley          |       0.4  |       0.32 |   0.28 |
+| 2020-12-17 | Sheffield United | Man United       |       0.2  |       0.55 |   0.25 |
+
 ## Predictions made on 2020-12-04
 
 | Date       | Home team        | Away team      |   Home win |   Away win |   Draw |
