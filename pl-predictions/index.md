@@ -12,6 +12,31 @@ More recent predictions appear at the top of the page.
 The numbers in the tables are probabilities.
 
 
+## Predictions made on 2020-12-25
+
+| Date       | Home team        | Away team        |   Home win |   Away win |   Draw |
+|------------|------------------|------------------|------------|------------|--------|
+| 2020-12-26 | Leicester        | Man United       |       0.36 |       0.38 |   0.26 |
+| 2020-12-26 | Aston Villa      | Crystal Palace   |       0.43 |       0.29 |   0.29 |
+| 2020-12-26 | Fulham           | Southampton      |       0.24 |       0.49 |   0.27 |
+| 2020-12-26 | Arsenal          | Chelsea          |       0.33 |       0.41 |   0.27 |
+| 2020-12-26 | Man City         | Newcastle        |       0.76 |       0.08 |   0.16 |
+| 2020-12-26 | Sheffield United | Everton          |       0.27 |       0.44 |   0.29 |
+| 2020-12-27 | Leeds            | Burnley          |       0.34 |       0.37 |   0.28 |
+| 2020-12-27 | West Ham         | Brighton         |       0.44 |       0.29 |   0.27 |
+| 2020-12-27 | Liverpool        | West Brom        |       0.89 |       0.03 |   0.08 |
+| 2020-12-27 | Wolves           | Tottenham        |       0.27 |       0.46 |   0.26 |
+| 2020-12-28 | Crystal Palace   | Leicester        |       0.23 |       0.5  |   0.26 |
+| 2020-12-28 | Chelsea          | Aston Villa      |       0.65 |       0.15 |   0.21 |
+| 2020-12-28 | Everton          | Man City         |       0.2  |       0.58 |   0.22 |
+| 2020-12-29 | Brighton         | Arsenal          |       0.27 |       0.45 |   0.28 |
+| 2020-12-29 | Burnley          | Sheffield United |       0.43 |       0.27 |   0.3  |
+| 2020-12-29 | Southampton      | West Ham         |       0.43 |       0.3  |   0.26 |
+| 2020-12-29 | West Brom        | Leeds            |       0.3  |       0.4  |   0.29 |
+| 2020-12-29 | Man United       | Wolves           |       0.55 |       0.21 |   0.24 |
+| 2020-12-30 | Tottenham        | Fulham           |       0.77 |       0.08 |   0.16 |
+| 2020-12-30 | Newcastle        | Liverpool        |       0.13 |       0.67 |   0.2  |
+
 ## Predictions made on 2020-12-18
 
 | Date       | Home team      | Away team        |   Home win |   Away win |   Draw |
