@@ -12,6 +12,31 @@ More recent predictions appear at the top of the page.
 The numbers in the tables are probabilities.
 
 
+## Predictions made on 2021-01-29
+
+| Date       | Home team        | Away team        |   Home win |   Away win |   Draw |
+|------------|------------------|------------------|------------|------------|--------|
+| 2021-01-30 | Everton          | Newcastle        |       0.51 |       0.23 |   0.27 |
+| 2021-01-30 | Crystal Palace   | Wolves           |       0.28 |       0.43 |   0.29 |
+| 2021-01-30 | Man City         | Sheffield United |       0.8  |       0.06 |   0.14 |
+| 2021-01-30 | West Brom        | Fulham           |       0.34 |       0.36 |   0.3  |
+| 2021-01-30 | Arsenal          | Man United       |       0.34 |       0.39 |   0.27 |
+| 2021-01-30 | Southampton      | Aston Villa      |       0.43 |       0.3  |   0.27 |
+| 2021-01-31 | Chelsea          | Burnley          |       0.6  |       0.17 |   0.23 |
+| 2021-01-31 | Leicester        | Leeds            |       0.65 |       0.14 |   0.21 |
+| 2021-01-31 | West Ham         | Liverpool        |       0.16 |       0.64 |   0.2  |
+| 2021-01-31 | Brighton         | Tottenham        |       0.19 |       0.57 |   0.24 |
+| 2021-02-02 | Sheffield United | West Brom        |       0.5  |       0.21 |   0.29 |
+| 2021-02-02 | Wolves           | Arsenal          |       0.34 |       0.38 |   0.28 |
+| 2021-02-02 | Man United       | Southampton      |       0.61 |       0.17 |   0.22 |
+| 2021-02-02 | Newcastle        | Crystal Palace   |       0.41 |       0.29 |   0.3  |
+| 2021-02-03 | Burnley          | Man City         |       0.12 |       0.68 |   0.19 |
+| 2021-02-03 | Fulham           | Leicester        |       0.16 |       0.62 |   0.23 |
+| 2021-02-03 | Leeds            | Everton          |       0.26 |       0.47 |   0.26 |
+| 2021-02-03 | Aston Villa      | West Ham         |       0.38 |       0.35 |   0.27 |
+| 2021-02-03 | Liverpool        | Brighton         |       0.76 |       0.08 |   0.16 |
+| 2021-02-04 | Tottenham        | Chelsea          |       0.45 |       0.29 |   0.26 |
+
 ## Predictions made on 2021-01-22
 
 | Date       | Home team      | Away team        |   Home win |   Away win |   Draw |
