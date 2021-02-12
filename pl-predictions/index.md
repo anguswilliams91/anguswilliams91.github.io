@@ -12,6 +12,23 @@ More recent predictions appear at the top of the page.
 The numbers in the tables are probabilities.
 
 
+## Predictions made on 2021-02-12
+
+| Date       | Home team      | Away team        |   Home win |   Away win |   Draw |
+|------------|----------------|------------------|------------|------------|--------|
+| 2021-02-13 | Leicester      | Liverpool        |       0.26 |       0.5  |   0.24 |
+| 2021-02-13 | Crystal Palace | Burnley          |       0.36 |       0.34 |   0.3  |
+| 2021-02-13 | Man City       | Tottenham        |       0.57 |       0.2  |   0.22 |
+| 2021-02-13 | Brighton       | Aston Villa      |       0.38 |       0.34 |   0.28 |
+| 2021-02-14 | Southampton    | Wolves           |       0.34 |       0.38 |   0.28 |
+| 2021-02-14 | West Brom      | Man United       |       0.1  |       0.72 |   0.18 |
+| 2021-02-14 | Arsenal        | Leeds            |       0.59 |       0.18 |   0.23 |
+| 2021-02-14 | Everton        | Fulham           |       0.62 |       0.15 |   0.23 |
+| 2021-02-15 | West Ham       | Sheffield United |       0.49 |       0.24 |   0.27 |
+| 2021-02-15 | Chelsea        | Newcastle        |       0.62 |       0.16 |   0.23 |
+| 2021-02-17 | Burnley        | Fulham           |       0.5  |       0.22 |   0.28 |
+| 2021-02-17 | Everton        | Man City         |       0.17 |       0.61 |   0.21 |
+
 ## Predictions made on 2021-02-05
 
 | Date       | Home team        | Away team      |   Home win |   Away win |   Draw |
