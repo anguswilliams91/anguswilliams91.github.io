@@ -12,6 +12,15 @@ More recent predictions appear at the top of the page.
 The numbers in the tables are probabilities.
 
 
+## Predictions made on 2021-03-19
+
+| Date       | Home team   | Away team   |   Home win |   Away win |   Draw |
+|------------|-------------|-------------|------------|------------|--------|
+| 2021-03-19 | Fulham      | Leeds       |       0.32 |       0.39 |   0.29 |
+| 2021-03-20 | Brighton    | Newcastle   |       0.39 |       0.31 |   0.3  |
+| 2021-03-21 | West Ham    | Arsenal     |       0.33 |       0.41 |   0.27 |
+| 2021-03-21 | Aston Villa | Tottenham   |       0.22 |       0.54 |   0.24 |
+
 ## Predictions made on 2021-03-12
 
 | Date       | Home team      | Away team        |   Home win |   Away win |   Draw |
