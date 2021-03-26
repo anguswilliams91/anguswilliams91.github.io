@@ -1,42 +1,36 @@
 name: PL predictions
 
-on: 
+on:
   schedule:
-    - cron: '0 0 * * 5'
+    - cron: "0 0 * * 5"
 
 jobs:
-    add-predictions:
-        name: Add predictions page
-        runs-on: ubuntu-latest
+  add-predictions:
+    name: Add predictions page
+    runs-on: ubuntu-latest
 
-        steps:
-            - name: checkout repo
-              uses: actions/checkout@v2
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v2
 
-            - name: set up python
-              uses: actions/setup-python@v2
-              with:
-                python-version: '3.7'
-            
-            - name: install packages
-              run: pip install bpl requests tabulate
+      - name: set up python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.7"
 
-            - name: run script to produce new predictions
-              run: python ./.github/workflows/make_predictions.py
+      - name: install packages
+        run: pip install --no-use-pep517 bpl requests tabulate
 
-            - name: commit files
-              run: |
-                git config --local user.name ${{ github.actor }}
-                git add ./pl-predictions
-                git diff-index --quiet HEAD || git commit -m "Updating predictions page."
-            
-            - name: push changes
-              uses: ad-m/github-push-action@v0.6.0
-              with:
-                github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: run script to produce new predictions
+        run: python ./.github/workflows/make_predictions.py
 
+      - name: commit files
+        run: |
+          git config --local user.name ${{ github.actor }}
+          git add ./pl-predictions
+          git diff-index --quiet HEAD || git commit -m "Updating predictions page."
 
-
-            
-
-            
+      - name: push changes
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
