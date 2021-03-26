@@ -20,7 +20,9 @@ jobs:
           python-version: "3.7"
 
       - name: install packages
-        run: pip install --no-use-pep517 bpl requests tabulate
+        run: |
+          pip3 install --upgrade pip
+          pip3 install bpl requests tabulate
 
       - name: run script to produce new predictions
         run: python ./.github/workflows/make_predictions.py
