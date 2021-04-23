@@ -12,6 +12,19 @@ More recent predictions appear at the top of the page.
 The numbers in the tables are probabilities.
 
 
+## Predictions made on 2021-04-23
+
+| Date       | Home team        | Away team      |   Home win |   Away win |   Draw |
+|------------|------------------|----------------|------------|------------|--------|
+| 2021-04-23 | Arsenal          | Everton        |       0.48 |       0.26 |   0.26 |
+| 2021-04-24 | Liverpool        | Newcastle      |       0.72 |       0.1  |   0.18 |
+| 2021-04-24 | West Ham         | Chelsea        |       0.3  |       0.45 |   0.25 |
+| 2021-04-24 | Sheffield United | Brighton       |       0.33 |       0.36 |   0.31 |
+| 2021-04-25 | Wolves           | Burnley        |       0.47 |       0.25 |   0.28 |
+| 2021-04-25 | Leeds            | Man United     |       0.19 |       0.58 |   0.23 |
+| 2021-04-25 | Aston Villa      | West Brom      |       0.55 |       0.19 |   0.26 |
+| 2021-04-26 | Leicester        | Crystal Palace |       0.63 |       0.15 |   0.22 |
+
 ## Predictions made on 2021-04-16
 
 | Date       | Home team   | Away team        |   Home win |   Away win |   Draw |
